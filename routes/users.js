@@ -55,12 +55,12 @@ router.patch("/:id", getUser, async (req, res) => {
 
 // DELETE ONE
 router.delete("/:id", getUser, async (req, res) => {
-      try {
-        await res.user.deleteOne();
-        res.json({ message: "Deleted User" });
-      } catch (err) {
-        res.status(500).json({ message: err.message });
-      }
+  try {
+    await res.user.deleteOne();
+    res.json({ message: "Deleted User" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 // MIDDLEWARE FUNCTIONS
