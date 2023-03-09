@@ -4,16 +4,18 @@ const User = require("./users");
 
 // GET ALL
 router.get("/", async (req, res) => {
-      try {
-        const users = await User.find();
-        res.json(users);
-      } catch (err) {
-        res.status(500).json({ message: err.message });
-      }
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 // GET ONE
-router.get("/:id", (req, res) => {});
+router.get("/:id", (req, res) => {
+  res.json(res.user);
+});
 
 // CREATING ONE
 router.post("/", (req, res) => {});
