@@ -1,7 +1,6 @@
 const express = require("express");
-const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const User = require("./users");
 
 // GET ALL
 router.get("/", (req, res) => {});
