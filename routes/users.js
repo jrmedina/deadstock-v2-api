@@ -19,22 +19,39 @@ router.get("/:id", getUser, (req, res) => {
 
 // CREATING ONE
 router.post("/", async (req, res) => {
-      const user = new User({
-        username: req.body.username,
-        password: req.body.password,
-        contact: req.body.contact,
-      });
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+    contact: req.body.contact,
+  });
 
-      try {
-        const newUser = await user.save();
-        res.status(201).json(newUser);
-      } catch (err) {
-        res.status(400).json({ message: err.message });
-      }
+  try {
+    const newUser = await user.save();
+    res.status(201).json(newUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 });
 
 // UPDATING ONE
-router.patch("/:id", (req, res) => {});
+router.patch("/:id", getUser, async (req, res) => {
+  if (req.body.username != null) {
+    res.user.username = req.body.username;
+  }
+  if (req.body.password != null) {
+    res.user.password = req.body.password;
+  }
+  if (req.body.contact != null) {
+    res.user.contact = req.body.contact;
+  }
+
+  try {
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 // DELETE ONE
 router.delete("/:id", (req, res) => {});
