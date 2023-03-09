@@ -13,12 +13,25 @@ router.get("/", async (req, res) => {
 });
 
 // GET ONE
-router.get("/:id", (req, res) => {
+router.get("/:id", getUser, (req, res) => {
   res.json(res.user);
 });
 
 // CREATING ONE
-router.post("/", (req, res) => {});
+router.post("/", async (req, res) => {
+      const user = new User({
+        username: req.body.username,
+        password: req.body.password,
+        contact: req.body.contact,
+      });
+
+      try {
+        const newUser = await user.save();
+        res.status(201).json(newUser);
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+});
 
 // UPDATING ONE
 router.patch("/:id", (req, res) => {});
