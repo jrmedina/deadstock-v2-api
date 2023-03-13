@@ -20,12 +20,9 @@ DELETE http://localhost:3001/products/640f68b2d4fadd1070d282c2
 
 ###
 
-PATCH http://localhost:3001/products/640f6f17defc789d430025b3
+PATCH http://localhost:3001/products/640f6f84defc789d430025b9
 Content-Type: application/json
 
 {
-    "colors": [
-"Tide",
-"Blue"
-]
+    "url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/083/401/929/original/14741_01.jpg.jpeg?action=crop&width=2000"
 }

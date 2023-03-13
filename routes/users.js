@@ -1,4 +1,6 @@
+const { default: axios } = require("axios");
 const express = require("express");
+const Product = require("../models/product");
 const router = express.Router();
 const User = require("../models/user");
 
@@ -28,6 +30,26 @@ router.post("/", async (req, res) => {
   try {
     const newUser = await user.save();
     res.status(201).json(newUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// LOGIN USER
+router.post("/login/:username", async (req, res) => {
+  const users = await User.find();
+  const products = await Product.find();
+  const { username, password } = req.body;
+
+  try {
+      const user = users.find(
+        (user) => username === user.username && user.password === password
+      );
+        const userInventory = user && products.filter(
+          (product) => product.user === username
+        );
+
+    res.status(201).json({ inventory: userInventory });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -78,5 +100,12 @@ async function getUser(req, res, next) {
   res.user = user;
   next();
 }
+
+const getAllUsers = async () => {
+  const response = await axios
+    .get(`http://localhost:3001/users`)
+    .catch((error) => console.log("Error: ", error));
+  return response;
+};
 
 module.exports = router;
