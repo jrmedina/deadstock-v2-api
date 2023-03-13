@@ -11,24 +11,6 @@ POST http://localhost:3001/products
 Content-Type: application/json
 
 {
-"title": "Air Jordan 1 High Zoom Comfort 'Hare'",
-"release": "08/19/2022",
-"colors": [
-"White",
-"Light Silver",
-"Dark Concord",
-"True Red"
-],
-"brand": "Jordan",
-"size": 9,
-"quantity": 2,
-"url": "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/075/782/871/original/1000003_01.jpg.jpeg?action=crop&width=2000",
-"code": "CT0978 100",
-"user": "dsJosh",
-"id": 9,
-"contact": "ndgns2@gmail.com",
-"price": 190
-
 }
   
 
@@ -38,9 +20,12 @@ DELETE http://localhost:3001/products/64091003b23e1850148cf990
 
 ###
 
-PATCH http://localhost:3001/products/6409052b304fd991b557097e
+PATCH http://localhost:3001/products/640f6f17defc789d430025b3
 Content-Type: application/json
 
 {
-    "username": "dsChanty"
+    "colors": [
+"Tide",
+"Blue"
+]
 }

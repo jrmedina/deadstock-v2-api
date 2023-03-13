@@ -47,40 +47,40 @@ router.post("/", async (req, res) => {
 // UPDATING ONE
 router.patch("/:id", getProduct, async (req, res) => {
   if (req.body.title != null) {
-    res.user.title = req.body.title;
+    res.product.title = req.body.title;
   }
   if (req.body.release != null) {
-    res.user.release = req.body.release;
+    res.product.release = req.body.release;
   }
   if (req.body.colors != null) {
-    res.user.colors = req.body.colors;
+    res.product.colors = req.body.colors;
   }
   if (req.body.brand != null) {
-    res.user.brand = req.body.brand;
+    res.product.brand = req.body.brand;
   }
   if (req.body.size != null) {
-    res.user.size = req.body.size;
+    res.product.size = req.body.size;
   }
   if (req.body.quantity != null) {
-    res.user.quantity = req.body.quantity;
+    res.product.quantity = req.body.quantity;
   }
   if (req.body.url != null) {
-    res.user.url = req.body.url;
+    res.product.url = req.body.url;
   }
   if (req.body.code != null) {
-    res.user.code = req.body.code;
+    res.product.code = req.body.code;
   }
   if (req.body.user != null) {
-    res.user.user = req.body.user;
+    res.product.user = req.body.user;
   }
   if (req.body.id != null) {
-    res.user.id = req.body.id;
+    res.product.id = req.body.id;
   }
   if (req.body.contact != null) {
-    res.user.contact = req.body.contact;
+    res.product.contact = req.body.contact;
   }
   if (req.body.code != null) {
-    res.user.price = req.body.price;
+    res.product.price = req.body.price;
   }
 
   try {
