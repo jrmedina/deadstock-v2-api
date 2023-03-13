@@ -31,7 +31,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3001/users/login/dsJosh
+POST http://localhost:3001/users/login
 Content-Type: application/json
 
 {

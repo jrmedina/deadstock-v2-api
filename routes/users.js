@@ -36,18 +36,17 @@ router.post("/", async (req, res) => {
 });
 
 // LOGIN USER
-router.post("/login/:username", async (req, res) => {
+router.post("/login", async (req, res) => {
   const users = await User.find();
   const products = await Product.find();
   const { username, password } = req.body;
 
   try {
-      const user = users.find(
-        (user) => username === user.username && user.password === password
-      );
-        const userInventory = user && products.filter(
-          (product) => product.user === username
-        );
+    const user = users.find(
+      (user) => username === user.username && user.password === password
+    );
+    const userInventory =
+      user && products.filter((product) => product.user === username);
 
     res.status(201).json({ inventory: userInventory });
   } catch (err) {
